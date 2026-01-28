@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jukebox Kiosk</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🎵</span>
+                <h1>JUKE<span class="accent">BOX</span></h1>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot"></span> Live Kiosk
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Left Panel: Search & Discover -->
+            <section class="panel search-panel">
+                <div class="panel-header">
+                    <h2>Add Music</h2>
+                    <p>Search via iTunes API</p>
+                </div>
+                
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" placeholder="Search for songs or artists..." autocomplete="off">
+                    <button id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                </div>
+
+                <div id="searchResults" class="results-list">
+                    <!-- Search results will appear here -->
+                    <div class="empty-state">
+                        <p>Type to find your favorite tracks...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Queue & Player -->
+            <section class="panel queue-panel">
+                <div class="now-playing-card">
+                    <div class="now-playing-info">
+                        <span class="label">NOW PLAYING</span>
+                        <h3 id="currentTitle">Not Playing</h3>
+                        <p id="currentArtist">Waiting for selection...</p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                        </div>
+                    </div>
+                    <div class="vinyl-icon" id="vinylIcon">
+                        <div class="vinyl-center"></div>
+                    </div>
+                </div>
+
+                <div class="queue-header">
+                    <h2>Up Next</h2>
+                    <span class="queue-count" id="queueCount">0 tracks</span>
+                </div>
+
+                <div id="queueList" class="queue-list">
+                    <!-- Queue items will appear here -->
+                    <div class="empty-queue-message">
+                        Queue is empty. Add some songs!
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
